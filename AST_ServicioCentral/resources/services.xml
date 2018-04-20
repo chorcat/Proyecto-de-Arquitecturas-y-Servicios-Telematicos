@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.7.1  Built on : Feb 20, 2016 (10:01:29 GMT) -->
+<serviceGroup>
+    <service name="ServicioCentral" class="central.ServicioCentralSkeleton">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-only" class="central.ServicioCentralMessageReceiverInOnly"/>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="central.ServicioCentralMessageReceiverInOut"/>
+        </messageReceivers>
+        <module ref="logging"/>
+        <parameter name="ServiceClass">central.ServicioCentralSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="Login" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://central">
+            <actionMapping>urn:Login</actionMapping>
+            <outputActionMapping>urn:LoginResponse</outputActionMapping>
+        </operation>
+        <operation name="listarLibros" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://central">
+            <actionMapping>urn:listarLibros</actionMapping>
+            <outputActionMapping>urn:listarLibrosResponse</outputActionMapping>
+        </operation>
+        <operation name="obtenerLibro" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://central">
+            <actionMapping>urn:obtenerLibro</actionMapping>
+            <outputActionMapping>urn:obtenerLibroResponse</outputActionMapping>
+        </operation>
+        <operation name="consultaTitulo" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://central">
+            <actionMapping>urn:consultaTitulo</actionMapping>
+            <outputActionMapping>urn:consultaTituloResponse</outputActionMapping>
+        </operation>
+        <operation name="introducirLibros" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://central">
+            <actionMapping>urn:introducirLibros</actionMapping>
+            <outputActionMapping>urn:introducirLibrosResponse</outputActionMapping>
+        </operation>
+        <operation name="Registro" mep="http://www.w3.org/ns/wsdl/in-only" namespace="http://central">
+            <actionMapping>urn:Registro</actionMapping>
+        </operation>
+    </service>
+</serviceGroup>

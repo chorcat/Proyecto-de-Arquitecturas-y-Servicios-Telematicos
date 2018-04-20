@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://central" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://central" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="unqualified" targetNamespace="http://central">
+            <xs:element name="obtenerLibro">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="ISBN" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="obtenerLibroResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="listarLibros">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="listarLibrosResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="introducirLibros">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="Titulo" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ISBN" nillable="true" type="xs:string"/>
+                        <xs:element name="Cantidad" type="xs:int"/>
+                        <xs:element minOccurs="0" name="nick" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="introducirLibrosResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="consultaTitulo">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="Titulo" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="consultaTituloResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Registro">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="nick" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="correo" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Login">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="nick" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="LoginResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="obtenerLibroResponse">
+    <wsdl:part name="parameters" element="ns:obtenerLibroResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="LoginRequest">
+    <wsdl:part name="parameters" element="ns:Login">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaTituloRequest">
+    <wsdl:part name="parameters" element="ns:consultaTitulo">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="introducirLibrosRequest">
+    <wsdl:part name="parameters" element="ns:introducirLibros">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RegistroRequest">
+    <wsdl:part name="parameters" element="ns:Registro">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarLibrosResponse">
+    <wsdl:part name="parameters" element="ns:listarLibrosResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="introducirLibrosResponse">
+    <wsdl:part name="parameters" element="ns:introducirLibrosResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaTituloResponse">
+    <wsdl:part name="parameters" element="ns:consultaTituloResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerLibroRequest">
+    <wsdl:part name="parameters" element="ns:obtenerLibro">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarLibrosRequest">
+    <wsdl:part name="parameters" element="ns:listarLibros">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="LoginResponse">
+    <wsdl:part name="parameters" element="ns:LoginResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ServicioCentralPortType">
+    <wsdl:operation name="introducirLibros">
+      <wsdl:input message="ns:introducirLibrosRequest" wsaw:Action="urn:introducirLibros">
+    </wsdl:input>
+      <wsdl:output message="ns:introducirLibrosResponse" wsaw:Action="urn:introducirLibrosResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultaTitulo">
+      <wsdl:input message="ns:consultaTituloRequest" wsaw:Action="urn:consultaTitulo">
+    </wsdl:input>
+      <wsdl:output message="ns:consultaTituloResponse" wsaw:Action="urn:consultaTituloResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerLibro">
+      <wsdl:input message="ns:obtenerLibroRequest" wsaw:Action="urn:obtenerLibro">
+    </wsdl:input>
+      <wsdl:output message="ns:obtenerLibroResponse" wsaw:Action="urn:obtenerLibroResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Registro">
+      <wsdl:input message="ns:RegistroRequest" wsaw:Action="urn:Registro">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="ns:LoginRequest" wsaw:Action="urn:Login">
+    </wsdl:input>
+      <wsdl:output message="ns:LoginResponse" wsaw:Action="urn:LoginResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarLibros">
+      <wsdl:input message="ns:listarLibrosRequest" wsaw:Action="urn:listarLibros">
+    </wsdl:input>
+      <wsdl:output message="ns:listarLibrosResponse" wsaw:Action="urn:listarLibrosResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServicioCentralSoap11Binding" type="ns:ServicioCentralPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="introducirLibros">
+      <soap:operation soapAction="urn:introducirLibros" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultaTitulo">
+      <soap:operation soapAction="urn:consultaTitulo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerLibro">
+      <soap:operation soapAction="urn:obtenerLibro" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Registro">
+      <soap:operation soapAction="urn:Registro" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="urn:Login" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarLibros">
+      <soap:operation soapAction="urn:listarLibros" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServicioCentralSoap12Binding" type="ns:ServicioCentralPortType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="introducirLibros">
+      <soap12:operation soapAction="urn:introducirLibros" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultaTitulo">
+      <soap12:operation soapAction="urn:consultaTitulo" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerLibro">
+      <soap12:operation soapAction="urn:obtenerLibro" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Registro">
+      <soap12:operation soapAction="urn:Registro" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="urn:Login" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarLibros">
+      <soap12:operation soapAction="urn:listarLibros" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServicioCentralHttpBinding" type="ns:ServicioCentralPortType">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="introducirLibros">
+      <http:operation location="introducirLibros"/>
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultaTitulo">
+      <http:operation location="consultaTitulo"/>
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerLibro">
+      <http:operation location="obtenerLibro"/>
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Registro">
+      <http:operation location="Registro"/>
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <http:operation location="Login"/>
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarLibros">
+      <http:operation location="listarLibros"/>
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioCentral">
+    <wsdl:port name="ServicioCentralHttpSoap11Endpoint" binding="ns:ServicioCentralSoap11Binding">
+      <soap:address location="http://localhost:8080/axis2/services/ServicioCentral.ServicioCentralHttpSoap11Endpoint/"/>
+    </wsdl:port>
+    <wsdl:port name="ServicioCentralHttpEndpoint" binding="ns:ServicioCentralHttpBinding">
+      <http:address location="http://localhost:8080/axis2/services/ServicioCentral.ServicioCentralHttpEndpoint/"/>
+    </wsdl:port>
+    <wsdl:port name="ServicioCentralHttpSoap12Endpoint" binding="ns:ServicioCentralSoap12Binding">
+      <soap12:address location="http://localhost:8080/axis2/services/ServicioCentral.ServicioCentralHttpSoap12Endpoint/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
