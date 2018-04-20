@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.7.0  Built on : Jan 18, 2016 (09:41:27 GMT) -->
+<serviceGroup>
+    <service name="GestorBiblio" class="gestor.OpenCloseBD">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-only" class="gestor.GestorBiblioMessageReceiverInOnly"/>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="gestor.GestorBiblioMessageReceiverInOut"/>
+        </messageReceivers>
+        <module ref="logging"/>
+        <parameter name="ServiceClass">gestor.GestorBiblioSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="consultaTitulo" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://gestor">
+            <actionMapping>urn:consultaTitulo</actionMapping>
+            <outputActionMapping>urn:consultaTituloResponse</outputActionMapping>
+        </operation>
+        <operation name="introducirLibros" mep="http://www.w3.org/ns/wsdl/in-only" namespace="http://gestor">
+            <actionMapping>urn:introducirLibros</actionMapping>
+        </operation>
+        <operation name="obtenerLibro" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://gestor">
+            <actionMapping>urn:obtenerLibro</actionMapping>
+            <outputActionMapping>urn:obtenerLibroResponse</outputActionMapping>
+        </operation>
+        <operation name="listarLibros" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://gestor">
+            <actionMapping>urn:listarLibros</actionMapping>
+            <outputActionMapping>urn:listarLibrosResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

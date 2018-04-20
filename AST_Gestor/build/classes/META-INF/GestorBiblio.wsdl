@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://gestor" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://gestor" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="unqualified" targetNamespace="http://gestor">
+            <xs:element name="obtenerLibro">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="ISBN" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="obtenerLibroResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="listarLibros">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="listarLibrosResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="introducirLibros">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="Titulo" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ISBN" nillable="true" type="xs:string"/>
+                        <xs:element name="Cantidad" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="consultaTitulo">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="Titulo" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="consultaTituloResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="listarLibrosRequest">
+    <wsdl:part name="parameters" element="ns:listarLibros">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaTituloResponse">
+    <wsdl:part name="parameters" element="ns:consultaTituloResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerLibroRequest">
+    <wsdl:part name="parameters" element="ns:obtenerLibro">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaTituloRequest">
+    <wsdl:part name="parameters" element="ns:consultaTitulo">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="introducirLibrosRequest">
+    <wsdl:part name="parameters" element="ns:introducirLibros">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarLibrosResponse">
+    <wsdl:part name="parameters" element="ns:listarLibrosResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerLibroResponse">
+    <wsdl:part name="parameters" element="ns:obtenerLibroResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="GestorBiblioPortType">
+    <wsdl:operation name="introducirLibros">
+      <wsdl:input message="ns:introducirLibrosRequest" wsaw:Action="urn:introducirLibros">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="consultaTitulo">
+      <wsdl:input message="ns:consultaTituloRequest" wsaw:Action="urn:consultaTitulo">
+    </wsdl:input>
+      <wsdl:output message="ns:consultaTituloResponse" wsaw:Action="urn:consultaTituloResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerLibro">
+      <wsdl:input message="ns:obtenerLibroRequest" wsaw:Action="urn:obtenerLibro">
+    </wsdl:input>
+      <wsdl:output message="ns:obtenerLibroResponse" wsaw:Action="urn:obtenerLibroResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarLibros">
+      <wsdl:input message="ns:listarLibrosRequest" wsaw:Action="urn:listarLibros">
+    </wsdl:input>
+      <wsdl:output message="ns:listarLibrosResponse" wsaw:Action="urn:listarLibrosResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GestorBiblioSoap11Binding" type="ns:GestorBiblioPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="introducirLibros">
+      <soap:operation soapAction="urn:introducirLibros" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="consultaTitulo">
+      <soap:operation soapAction="urn:consultaTitulo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerLibro">
+      <soap:operation soapAction="urn:obtenerLibro" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarLibros">
+      <soap:operation soapAction="urn:listarLibros" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GestorBiblioSoap12Binding" type="ns:GestorBiblioPortType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="introducirLibros">
+      <soap12:operation soapAction="urn:introducirLibros" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="consultaTitulo">
+      <soap12:operation soapAction="urn:consultaTitulo" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerLibro">
+      <soap12:operation soapAction="urn:obtenerLibro" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarLibros">
+      <soap12:operation soapAction="urn:listarLibros" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GestorBiblioHttpBinding" type="ns:GestorBiblioPortType">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="introducirLibros">
+      <http:operation location="introducirLibros"/>
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="consultaTitulo">
+      <http:operation location="consultaTitulo"/>
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerLibro">
+      <http:operation location="obtenerLibro"/>
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarLibros">
+      <http:operation location="listarLibros"/>
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GestorBiblio">
+    <wsdl:port name="GestorBiblioHttpEndpoint" binding="ns:GestorBiblioHttpBinding">
+      <http:address location="http://localhost:8080/axis2/services/GestorBiblio.GestorBiblioHttpEndpoint/"/>
+    </wsdl:port>
+    <wsdl:port name="GestorBiblioHttpSoap11Endpoint" binding="ns:GestorBiblioSoap11Binding">
+      <soap:address location="http://localhost:8080/axis2/services/GestorBiblio.GestorBiblioHttpSoap11Endpoint/"/>
+    </wsdl:port>
+    <wsdl:port name="GestorBiblioHttpSoap12Endpoint" binding="ns:GestorBiblioSoap12Binding">
+      <soap12:address location="http://localhost:8080/axis2/services/GestorBiblio.GestorBiblioHttpSoap12Endpoint/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

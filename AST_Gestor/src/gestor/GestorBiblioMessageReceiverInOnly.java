@@ -1,0 +1,262 @@
+/**
+ * GestorBiblioMessageReceiverInOnly.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis2 version: 1.7.0  Built on : Jan 18, 2016 (09:41:27 GMT)
+ */
+package gestor;
+
+
+/**
+ *  GestorBiblioMessageReceiverInOnly message receiver
+ */
+public class GestorBiblioMessageReceiverInOnly extends org.apache.axis2.receivers.AbstractMessageReceiver {
+    public void invokeBusinessLogic(
+        org.apache.axis2.context.MessageContext msgContext)
+        throws org.apache.axis2.AxisFault {
+        try {
+            // get the implementation class for the Web Service
+            Object obj = getTheImplementationObject(msgContext);
+
+            GestorBiblioSkeleton skel = (GestorBiblioSkeleton) obj;
+
+            //Out Envelop
+            org.apache.axiom.soap.SOAPEnvelope envelope = null;
+
+            //Find the axisOperation that has been set by the Dispatch phase.
+            org.apache.axis2.description.AxisOperation op = msgContext.getOperationContext()
+                                                                      .getAxisOperation();
+
+            if (op == null) {
+                throw new org.apache.axis2.AxisFault(
+                    "Operation is not located, if this is doclit style the SOAP-ACTION should specified via the SOAP Action to use the RawXMLProvider");
+            }
+
+            java.lang.String methodName;
+
+            if ((op.getName() != null) &&
+                    ((methodName = org.apache.axis2.util.JavaUtils.xmlNameToJavaIdentifier(
+                            op.getName().getLocalPart())) != null)) {
+                if ("introducirLibros".equals(methodName)) {
+                    //doc style
+                    gestor.IntroducirLibros wrappedParam = (gestor.IntroducirLibros) fromOM(msgContext.getEnvelope()
+                                                                                                      .getBody()
+                                                                                                      .getFirstElement(),
+                            gestor.IntroducirLibros.class);
+
+                    skel.introducirLibros(wrappedParam);
+
+                    envelope = getSOAPFactory(msgContext).getDefaultEnvelope();
+                } else {
+                    throw new java.lang.RuntimeException("method not found");
+                }
+            }
+        } catch (java.lang.Exception e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+    }
+
+    //
+    private org.apache.axiom.om.OMElement toOM(gestor.ConsultaTitulo param,
+        boolean optimizeContent) throws org.apache.axis2.AxisFault {
+        try {
+            return param.getOMElement(gestor.ConsultaTitulo.MY_QNAME,
+                org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+    }
+
+    private org.apache.axiom.om.OMElement toOM(
+        gestor.ConsultaTituloResponse param, boolean optimizeContent)
+        throws org.apache.axis2.AxisFault {
+        try {
+            return param.getOMElement(gestor.ConsultaTituloResponse.MY_QNAME,
+                org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+    }
+
+    private org.apache.axiom.om.OMElement toOM(gestor.IntroducirLibros param,
+        boolean optimizeContent) throws org.apache.axis2.AxisFault {
+        try {
+            return param.getOMElement(gestor.IntroducirLibros.MY_QNAME,
+                org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+    }
+
+    private org.apache.axiom.om.OMElement toOM(gestor.ObtenerLibro param,
+        boolean optimizeContent) throws org.apache.axis2.AxisFault {
+        try {
+            return param.getOMElement(gestor.ObtenerLibro.MY_QNAME,
+                org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+    }
+
+    private org.apache.axiom.om.OMElement toOM(
+        gestor.ObtenerLibroResponse param, boolean optimizeContent)
+        throws org.apache.axis2.AxisFault {
+        try {
+            return param.getOMElement(gestor.ObtenerLibroResponse.MY_QNAME,
+                org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+    }
+
+    private org.apache.axiom.om.OMElement toOM(gestor.ListarLibros param,
+        boolean optimizeContent) throws org.apache.axis2.AxisFault {
+        try {
+            return param.getOMElement(gestor.ListarLibros.MY_QNAME,
+                org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+    }
+
+    private org.apache.axiom.om.OMElement toOM(
+        gestor.ListarLibrosResponse param, boolean optimizeContent)
+        throws org.apache.axis2.AxisFault {
+        try {
+            return param.getOMElement(gestor.ListarLibrosResponse.MY_QNAME,
+                org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+    }
+
+    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
+        org.apache.axiom.soap.SOAPFactory factory,
+        gestor.ConsultaTituloResponse param, boolean optimizeContent,
+        javax.xml.namespace.QName elementQName)
+        throws org.apache.axis2.AxisFault {
+        try {
+            org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+
+            emptyEnvelope.getBody()
+                         .addChild(param.getOMElement(
+                    gestor.ConsultaTituloResponse.MY_QNAME, factory));
+
+            return emptyEnvelope;
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+    }
+
+    private gestor.ConsultaTituloResponse wrapconsultaTitulo() {
+        gestor.ConsultaTituloResponse wrappedElement = new gestor.ConsultaTituloResponse();
+
+        return wrappedElement;
+    }
+
+    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
+        org.apache.axiom.soap.SOAPFactory factory,
+        gestor.ObtenerLibroResponse param, boolean optimizeContent,
+        javax.xml.namespace.QName elementQName)
+        throws org.apache.axis2.AxisFault {
+        try {
+            org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+
+            emptyEnvelope.getBody()
+                         .addChild(param.getOMElement(
+                    gestor.ObtenerLibroResponse.MY_QNAME, factory));
+
+            return emptyEnvelope;
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+    }
+
+    private gestor.ObtenerLibroResponse wrapobtenerLibro() {
+        gestor.ObtenerLibroResponse wrappedElement = new gestor.ObtenerLibroResponse();
+
+        return wrappedElement;
+    }
+
+    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
+        org.apache.axiom.soap.SOAPFactory factory,
+        gestor.ListarLibrosResponse param, boolean optimizeContent,
+        javax.xml.namespace.QName elementQName)
+        throws org.apache.axis2.AxisFault {
+        try {
+            org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+
+            emptyEnvelope.getBody()
+                         .addChild(param.getOMElement(
+                    gestor.ListarLibrosResponse.MY_QNAME, factory));
+
+            return emptyEnvelope;
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+    }
+
+    private gestor.ListarLibrosResponse wraplistarLibros() {
+        gestor.ListarLibrosResponse wrappedElement = new gestor.ListarLibrosResponse();
+
+        return wrappedElement;
+    }
+
+    /**
+     *  get the default envelope
+     */
+    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
+        org.apache.axiom.soap.SOAPFactory factory) {
+        return factory.getDefaultEnvelope();
+    }
+
+    private java.lang.Object fromOM(org.apache.axiom.om.OMElement param,
+        java.lang.Class type) throws org.apache.axis2.AxisFault {
+        try {
+            if (gestor.ConsultaTitulo.class.equals(type)) {
+                return gestor.ConsultaTitulo.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+            }
+
+            if (gestor.ConsultaTituloResponse.class.equals(type)) {
+                return gestor.ConsultaTituloResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+            }
+
+            if (gestor.IntroducirLibros.class.equals(type)) {
+                return gestor.IntroducirLibros.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+            }
+
+            if (gestor.ListarLibros.class.equals(type)) {
+                return gestor.ListarLibros.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+            }
+
+            if (gestor.ListarLibrosResponse.class.equals(type)) {
+                return gestor.ListarLibrosResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+            }
+
+            if (gestor.ObtenerLibro.class.equals(type)) {
+                return gestor.ObtenerLibro.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+            }
+
+            if (gestor.ObtenerLibroResponse.class.equals(type)) {
+                return gestor.ObtenerLibroResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+            }
+        } catch (java.lang.Exception e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+        return null;
+    }
+
+    private org.apache.axis2.AxisFault createAxisFault(java.lang.Exception e) {
+        org.apache.axis2.AxisFault f;
+        Throwable cause = e.getCause();
+
+        if (cause != null) {
+            f = new org.apache.axis2.AxisFault(e.getMessage(), cause);
+        } else {
+            f = new org.apache.axis2.AxisFault(e.getMessage());
+        }
+
+        return f;
+    }
+} //end of class
