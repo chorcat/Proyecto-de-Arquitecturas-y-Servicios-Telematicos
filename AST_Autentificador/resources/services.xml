@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.7.1  Built on : Feb 20, 2016 (10:01:29 GMT) -->
+<serviceGroup>
+    <service name="Autentificador" class="autentificador.OpenCloseBD">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-only" class="autentificador.AutentificadorMessageReceiverInOnly"/>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="autentificador.AutentificadorMessageReceiverInOut"/>
+        </messageReceivers>
+        <module ref="logging"/>
+        <module ref="loginModule"/>
+        <parameter name="ServiceClass">autentificador.AutentificadorSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="Login" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://autentificador">
+            <actionMapping>urn:Login</actionMapping>
+            <outputActionMapping>urn:LoginResponse</outputActionMapping>
+        </operation>
+        <operation name="Registro" mep="http://www.w3.org/ns/wsdl/in-only" namespace="http://autentificador">
+            <actionMapping>urn:Registro</actionMapping>
+        </operation>
+    </service>
+</serviceGroup>
