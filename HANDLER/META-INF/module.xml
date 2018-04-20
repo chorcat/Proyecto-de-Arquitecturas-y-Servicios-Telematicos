@@ -1,0 +1,8 @@
+<module name="loginModule" class="LoginModule">
+    <Description>Modulo para autentificar al usuario y administrador</Description>
+    <OutFlow>
+        <handler name="LoginOutFlowHandler" class="LoginOutFlowHandler">
+            <order phase="LoginPhase" phaseFirst="true"/>
+        </handler>
+    </OutFlow>
+</module>
